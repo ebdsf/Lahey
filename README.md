@@ -31,6 +31,7 @@
             font-size: 3rem;
             margin-bottom: 10px;
             animation: pulsar 1.5s infinite;
+            display: none; /* Esconde a mensagem no início */
         }
 
         .beijos {
@@ -66,15 +67,25 @@
 <body>
 
     <div class="card">
-        <h1>❤️ EU TE AMO! ❤️</h1>
+        <h1 id="mensagem-amor">❤️ EU TE AMO! ❤️</h1>
         <div class="beijos" id="area-beijos">💋 💋 💋</div>
-        <button onclick="mandarBeijo()">Mandar mais beijos! 💋</button>
+        <button id="btn-acao" onclick="revelarEBeijar()">Clique aqui para uma surpresa! 🎁</button>
     </div>
 
     <script>
-        function mandarBeijo() {
+        function revelarEBeijar() {
+            const mensagem = document.getElementById('mensagem-amor');
             const area = document.getElementById('area-beijos');
+            const botao = document.getElementById('btn-acao');
+
+            // Exibe a mensagem de amor
+            mensagem.style.display = 'block';
+
+            // Adiciona mais um beijo a cada clique
             area.innerHTML += " 💋";
+
+            // Altera o texto do botão após a primeira revelação
+            botao.textContent = "Mandar mais beijos! 💋";
         }
     </script>
 
